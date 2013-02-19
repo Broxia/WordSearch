@@ -4,11 +4,20 @@
  */
 package DAL;
 
+import java.io.FileReader;
+
 /**
  *
  * @author DennisList
  */
 public class WordSearchDBManager
 {
-    
+    public String getList() throws Exception
+    {
+        try(FileReader fr = new FileReader("brit-a-z.txt"))
+        {
+            String list = fr.toString();
+            return list;
+        }
+    }
 }

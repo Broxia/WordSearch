@@ -4,11 +4,17 @@
  */
 package BLL;
 
+import DAL.WordSearchDBManager;
+
 /**
  *
  * @author DennisList
  */
 public class WordSearchManager
 {
-    
+    private WordSearchDBManager db;
+    public String getList() throws Exception
+    {
+        return db.getList();
+    }
 }
