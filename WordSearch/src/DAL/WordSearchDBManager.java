@@ -8,7 +8,7 @@ package DAL;
  *
  * @author DennisList
  */
-public class NewClass
+public class WordSearchDBManager
 {
     
 }
