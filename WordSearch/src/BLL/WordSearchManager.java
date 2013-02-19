@@ -22,4 +22,9 @@ public class WordSearchManager
     {
         return db.getList();
     }
+    public ArrayList beginsWith() throws Exception
+    {
+        
+        return db.beginsWith();
+    }
 }
