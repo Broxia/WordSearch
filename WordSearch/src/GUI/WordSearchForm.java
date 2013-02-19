@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 
@@ -15,7 +14,6 @@ import javax.swing.UIManager;
 public class WordSearchForm extends javax.swing.JFrame
 {
 
-    private DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
     private DefaultListModel listModel = new DefaultListModel();
 
     /**
