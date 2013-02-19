@@ -43,4 +43,52 @@ public class WordSearchDBManager
         br.close();
         return list;
     }
+    
+    public ArrayList contains(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.contains(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+    
+    public ArrayList endsWith(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.endsWith(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+    
+     public ArrayList exact(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.equals(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
 }
