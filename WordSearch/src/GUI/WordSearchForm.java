@@ -250,7 +250,7 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void chkbxCaseSensitiveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chkbxCaseSensitiveActionPerformed
     {//GEN-HEADEREND:event_chkbxCaseSensitiveActionPerformed
-        // TODO add your handling code here:
+        // Make case sensitive
     }//GEN-LAST:event_chkbxCaseSensitiveActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
