@@ -5,8 +5,6 @@
 package GUI;
 
 import BLL.WordSearchManager;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 
@@ -27,8 +25,9 @@ public class WordSearchForm extends javax.swing.JFrame
     {
         wsm = new WordSearchManager();
         initComponents();
+        listAll();
         setLocationRelativeTo(null);
-
+        lstResults.setModel(listModel);
 
     }
 
@@ -267,19 +266,7 @@ public class WordSearchForm extends javax.swing.JFrame
         
         if (rbtnBeginsWith.isSelected() == true)
         {
-            try
-            {
-                for (Object list : wsm.getList())
-                {
-                    listModel.addElement(list.toString());
-                    
-                }
-                //Search By Begins with Search Query.
-            }
-            catch (Exception ex)
-            {
-                Logger.getLogger(WordSearchForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         else if (rbtnContains.isSelected() == true)
         {
@@ -330,6 +317,20 @@ public class WordSearchForm extends javax.swing.JFrame
         {
             //do nothing
         }
+    }
+    public void listAll()
+    {
+        try
+            {
+                for (Object list : wsm.getList())
+                {
+                    listModel.addElement(list.toString());
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERROR - "+ e.getMessage());
+            }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
