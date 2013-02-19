@@ -69,6 +69,13 @@ public class WordSearchForm extends javax.swing.JFrame
         btnClear.setText("Clear");
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         lblResult.setText("Result:");
 
@@ -250,6 +257,26 @@ public class WordSearchForm extends javax.swing.JFrame
     {//GEN-HEADEREND:event_btnCloseActionPerformed
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
+    {//GEN-HEADEREND:event_btnSearchActionPerformed
+        if (rbtnBeginsWith.isSelected() == true)
+        {
+            //Search By Begins with Search Query.
+        }
+        else if (rbtnContains.isSelected() == true)
+        {
+            //Search By Contains Search Query.
+        }
+        else if (rbtnEndswith.isSelected() == true)
+        {
+            //Search By Ends with Search Query.
+        }
+        else if (rbtnExact.isSelected() == true)
+        {
+            //Search By Exact Search Query.
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
