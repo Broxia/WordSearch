@@ -69,6 +69,13 @@ public class WordSearchForm extends javax.swing.JFrame
         lblQuery.setText("Query:");
 
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener()
@@ -250,7 +257,6 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void chkbxCaseSensitiveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chkbxCaseSensitiveActionPerformed
     {//GEN-HEADEREND:event_chkbxCaseSensitiveActionPerformed
-
     }//GEN-LAST:event_chkbxCaseSensitiveActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
@@ -261,10 +267,21 @@ public class WordSearchForm extends javax.swing.JFrame
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
         caseSensitive();
-        
+
         if (rbtnBeginsWith.isSelected() == true)
         {
             listModel.clear();
+            try
+            {
+                for (Object list : wsm.beginsWith(txtSearch.getText()))
+                {
+                    listModel.addElement(list.toString());
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERROR - " + e.getMessage());
+            }
         }
         else if (rbtnContains.isSelected() == true)
         {
@@ -280,6 +297,11 @@ public class WordSearchForm extends javax.swing.JFrame
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClearActionPerformed
+    {//GEN-HEADEREND:event_btnClearActionPerformed
+        txtSearch.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,32 +327,35 @@ public class WordSearchForm extends javax.swing.JFrame
             }
         });
     }
+
     public void caseSensitive()
     {
         String search = txtSearch.getText();
-        if(chkbxCaseSensitive.isSelected() == false)
-            {
-                search.toLowerCase();
-            }
+        if (chkbxCaseSensitive.isSelected() == false)
+        {
+            search.toLowerCase();
+        }
         else
         {
             //do nothing
         }
     }
+
     public void listAll()
     {
         try
+        {
+            for (Object list : wsm.getList())
             {
-                for (Object list : wsm.getList())
-                {
-                    listModel.addElement(list.toString());
-                }
+                listModel.addElement(list.toString());
             }
-            catch (Exception e)
-            {
-                System.out.println("ERROR - "+ e.getMessage());
-            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
     }
+
     public void counter()
     {
         int i = listModel.getSize();
