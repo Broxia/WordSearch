@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAL;
+package BLL;
 
 /**
  *
  * @author DennisList
  */
-public class NewClass
+public class WordSearchManager
 {
     
 }

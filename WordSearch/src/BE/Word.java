@@ -8,6 +8,6 @@ package BE;
  *
  * @author DennisList
  */
-public class NewClass
+public class Word
 {
 }
