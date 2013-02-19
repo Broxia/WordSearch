@@ -10,5 +10,5 @@ package BE;
  */
 public class NewClass
 {
-    
+    private int hej = 3;
 }
