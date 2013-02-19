@@ -267,19 +267,19 @@ public class WordSearchForm extends javax.swing.JFrame
         
         if (rbtnBeginsWith.isSelected() == true)
         {
-            
+            listModel.clear();
         }
         else if (rbtnContains.isSelected() == true)
         {
-            //Search By Contains Search Query.
+            listModel.clear();
         }
         else if (rbtnEndswith.isSelected() == true)
         {
-            //Search By Ends with Search Query.
+            listModel.clear();
         }
         else if (rbtnExact.isSelected() == true)
         {
-            //Search By Exact Search Query.
+            listModel.clear();
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
