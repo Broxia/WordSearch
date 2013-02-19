@@ -86,20 +86,18 @@
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblCount" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCountDone" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnClose" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnClose" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -141,8 +139,12 @@
     <Container class="javax.swing.JPanel" name="pnlSearchType">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Search Type">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </TitledBorder>
           </Border>
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -152,20 +154,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="rbtnBeginsWith" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rbtnContains" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rbtnEndswith" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rbtnExact" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSearchType" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="rbtnBeginsWith" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbtnContains" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbtnEndswith" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbtnExact" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -174,8 +168,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="lblSearchType" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="rbtnBeginsWith" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="rbtnContains" min="-2" max="-2" attributes="0"/>
@@ -221,18 +214,17 @@
             <Property name="text" type="java.lang.String" value="Exact"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSearchType">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Search type"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlStyle">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Style">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </TitledBorder>
           </Border>
         </Property>
       </Properties>
@@ -241,14 +233,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chkbxCaseSensitive" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="lblStyle" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="chkbxCaseSensitive" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -256,20 +242,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="lblStyle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="chkbxCaseSensitive" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblStyle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Style"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="chkbxCaseSensitive">
           <Properties>
             <Property name="text" type="java.lang.String" value="Case sensitive"/>
@@ -283,8 +263,12 @@
     <Container class="javax.swing.JPanel" name="pnlLimitation">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Limitation">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </TitledBorder>
           </Border>
         </Property>
       </Properties>
@@ -293,36 +277,35 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="cmbbxLimitation" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="lblLimitation" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="cmbbxLimitation" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="lblLimitation" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="cmbbxLimitation" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblLimitation">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Limitation"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JComboBox" name="cmbbxLimitation">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="None"/>
+                <StringItem index="1" value="10"/>
+                <StringItem index="2" value="20"/>
+                <StringItem index="3" value="50"/>
+                <StringItem index="4" value="100"/>
+              </StringArray>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -330,6 +313,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Close"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCount">
       <Properties>

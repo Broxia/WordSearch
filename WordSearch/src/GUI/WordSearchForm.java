@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.UIManager;
+
 /**
  *
  * @author DennisList
@@ -11,12 +15,19 @@ package GUI;
 public class WordSearchForm extends javax.swing.JFrame
 {
 
+    private DefaultComboBoxModel boxModel = new DefaultComboBoxModel();
+    private DefaultListModel listModel = new DefaultListModel();
+
     /**
      * Creates new form WordSearchForm
      */
     public WordSearchForm()
     {
+
         initComponents();
+        setLocationRelativeTo(null);
+
+
     }
 
     /**
@@ -29,7 +40,7 @@ public class WordSearchForm extends javax.swing.JFrame
     private void initComponents()
     {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btngrpSearchType = new javax.swing.ButtonGroup();
         lblQuery = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnClear = new javax.swing.JButton();
@@ -42,12 +53,9 @@ public class WordSearchForm extends javax.swing.JFrame
         rbtnContains = new javax.swing.JRadioButton();
         rbtnEndswith = new javax.swing.JRadioButton();
         rbtnExact = new javax.swing.JRadioButton();
-        lblSearchType = new javax.swing.JLabel();
         pnlStyle = new javax.swing.JPanel();
-        lblStyle = new javax.swing.JLabel();
         chkbxCaseSensitive = new javax.swing.JCheckBox();
         pnlLimitation = new javax.swing.JPanel();
-        lblLimitation = new javax.swing.JLabel();
         cmbbxLimitation = new javax.swing.JComboBox();
         btnClose = new javax.swing.JButton();
         lblCount = new javax.swing.JLabel();
@@ -64,42 +72,40 @@ public class WordSearchForm extends javax.swing.JFrame
 
         lblResult.setText("Result:");
 
-        pnlSearchType.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jScrollPane1.setViewportView(lstResults);
+
+        pnlSearchType.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Search Type"));
         pnlSearchType.setName(""); // NOI18N
 
+        btngrpSearchType.add(rbtnBeginsWith);
         rbtnBeginsWith.setText("Begins with");
 
+        btngrpSearchType.add(rbtnContains);
         rbtnContains.setText("Contains");
 
+        btngrpSearchType.add(rbtnEndswith);
         rbtnEndswith.setText("Ends with");
 
+        btngrpSearchType.add(rbtnExact);
         rbtnExact.setText("Exact");
-
-        lblSearchType.setText("Search type");
 
         org.jdesktop.layout.GroupLayout pnlSearchTypeLayout = new org.jdesktop.layout.GroupLayout(pnlSearchType);
         pnlSearchType.setLayout(pnlSearchTypeLayout);
         pnlSearchTypeLayout.setHorizontalGroup(
             pnlSearchTypeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(pnlSearchTypeLayout.createSequentialGroup()
+                .add(20, 20, 20)
                 .add(pnlSearchTypeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(pnlSearchTypeLayout.createSequentialGroup()
-                        .add(20, 20, 20)
-                        .add(pnlSearchTypeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(rbtnBeginsWith)
-                            .add(rbtnContains)
-                            .add(rbtnEndswith)
-                            .add(rbtnExact)))
-                    .add(pnlSearchTypeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(lblSearchType)))
+                    .add(rbtnBeginsWith)
+                    .add(rbtnContains)
+                    .add(rbtnEndswith)
+                    .add(rbtnExact))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlSearchTypeLayout.setVerticalGroup(
             pnlSearchTypeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, pnlSearchTypeLayout.createSequentialGroup()
-                .add(lblSearchType)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, Short.MAX_VALUE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(rbtnBeginsWith)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(rbtnContains)
@@ -110,9 +116,7 @@ public class WordSearchForm extends javax.swing.JFrame
                 .addContainerGap())
         );
 
-        pnlStyle.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lblStyle.setText("Style");
+        pnlStyle.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Style"));
 
         chkbxCaseSensitive.setText("Case sensitive");
         chkbxCaseSensitive.addActionListener(new java.awt.event.ActionListener()
@@ -128,50 +132,47 @@ public class WordSearchForm extends javax.swing.JFrame
         pnlStyleLayout.setHorizontalGroup(
             pnlStyleLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(pnlStyleLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(pnlStyleLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(pnlStyleLayout.createSequentialGroup()
-                        .add(10, 10, 10)
-                        .add(chkbxCaseSensitive))
-                    .add(lblStyle))
+                .add(17, 17, 17)
+                .add(chkbxCaseSensitive)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlStyleLayout.setVerticalGroup(
             pnlStyleLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(pnlStyleLayout.createSequentialGroup()
-                .add(lblStyle)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .addContainerGap()
                 .add(chkbxCaseSensitive)
-                .add(0, 25, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        pnlLimitation.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlLimitation.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Limitation"));
 
-        lblLimitation.setText("Limitation");
+        cmbbxLimitation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "10", "20", "50", "100" }));
 
         org.jdesktop.layout.GroupLayout pnlLimitationLayout = new org.jdesktop.layout.GroupLayout(pnlLimitation);
         pnlLimitation.setLayout(pnlLimitationLayout);
         pnlLimitationLayout.setHorizontalGroup(
             pnlLimitationLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(pnlLimitationLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(pnlLimitationLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(pnlLimitationLayout.createSequentialGroup()
-                        .add(10, 10, 10)
-                        .add(cmbbxLimitation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(lblLimitation))
+                .add(23, 23, 23)
+                .add(cmbbxLimitation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlLimitationLayout.setVerticalGroup(
             pnlLimitationLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(pnlLimitationLayout.createSequentialGroup()
-                .add(lblLimitation)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, pnlLimitationLayout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(cmbbxLimitation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 26, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnCloseActionPerformed(evt);
+            }
+        });
 
         lblCount.setText("Count:");
 
@@ -190,8 +191,8 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(lblCount)
                         .add(18, 18, 18)
                         .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 161, Short.MAX_VALUE)
-                        .add(btnClose))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 151, Short.MAX_VALUE)
+                        .add(btnClose, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -200,9 +201,9 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(pnlLimitation, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                .add(btnSearch)
-                                .add(18, 18, 18)
-                                .add(btnClear))
+                                .add(btnSearch, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(btnClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 74, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(pnlSearchType, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(pnlStyle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -226,16 +227,15 @@ public class WordSearchForm extends javax.swing.JFrame
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(pnlLimitation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jScrollPane1))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(9, 9, 9)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(lblCount)
                             .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(btnClose)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .add(btnClose))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,44 +246,25 @@ public class WordSearchForm extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_chkbxCaseSensitiveActionPerformed
 
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
+    {//GEN-HEADEREND:event_btnCloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCloseActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }
-        catch (ClassNotFoundException ex)
+        catch (Exception e)
         {
-            java.util.logging.Logger.getLogger(WordSearchForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //Do nothing
         }
-        catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(WordSearchForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(WordSearchForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(WordSearchForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
@@ -298,17 +279,14 @@ public class WordSearchForm extends javax.swing.JFrame
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnSearch;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup btngrpSearchType;
     private javax.swing.JCheckBox chkbxCaseSensitive;
     private javax.swing.JComboBox cmbbxLimitation;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCount;
     private javax.swing.JLabel lblCountDone;
-    private javax.swing.JLabel lblLimitation;
     private javax.swing.JLabel lblQuery;
     private javax.swing.JLabel lblResult;
-    private javax.swing.JLabel lblSearchType;
-    private javax.swing.JLabel lblStyle;
     private javax.swing.JList lstResults;
     private javax.swing.JPanel pnlLimitation;
     private javax.swing.JPanel pnlSearchType;
