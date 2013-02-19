@@ -248,7 +248,7 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void chkbxCaseSensitiveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chkbxCaseSensitiveActionPerformed
     {//GEN-HEADEREND:event_chkbxCaseSensitiveActionPerformed
-        // Make case sensitive
+
     }//GEN-LAST:event_chkbxCaseSensitiveActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
@@ -258,6 +258,8 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
+        caseSensitive();
+        
         if (rbtnBeginsWith.isSelected() == true)
         {
             //Search By Begins with Search Query.
@@ -299,6 +301,18 @@ public class WordSearchForm extends javax.swing.JFrame
                 new WordSearchForm().setVisible(true);
             }
         });
+    }
+    public void caseSensitive()
+    {
+        String search = txtSearch.getText();
+        if(chkbxCaseSensitive.isSelected() == false)
+            {
+                search.toLowerCase();
+            }
+        else
+        {
+            //do nothing
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
