@@ -4,7 +4,9 @@
  */
 package DAL;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,12 +14,16 @@ import java.io.FileReader;
  */
 public class WordSearchDBManager
 {
-    public String getList() throws Exception
+    public ArrayList getList() throws Exception
     {
-        try(FileReader fr = new FileReader("brit-a-z.txt"))
-        {
-            String list = fr.toString();
-            return list;
-        }
+       BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+       ArrayList list = new ArrayList();
+       while(br.ready())
+       {
+           String word = br.readLine();  
+           list.add(word);
+       }
+       br.close();
+       return list;
     }
 }

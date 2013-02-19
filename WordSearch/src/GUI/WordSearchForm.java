@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import BLL.WordSearchManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 
@@ -15,13 +18,14 @@ public class WordSearchForm extends javax.swing.JFrame
 {
 
     private DefaultListModel listModel = new DefaultListModel();
+    private WordSearchManager wsm;
 
     /**
      * Creates new form WordSearchForm
      */
     public WordSearchForm()
     {
-
+        wsm = new WordSearchManager();
         initComponents();
         setLocationRelativeTo(null);
 
@@ -262,7 +266,19 @@ public class WordSearchForm extends javax.swing.JFrame
         
         if (rbtnBeginsWith.isSelected() == true)
         {
-            //Search By Begins with Search Query.
+            try
+            {
+                for (Object list : wsm.getList())
+                {
+                    listModel.addElement(list.toString());
+                    
+                }
+                //Search By Begins with Search Query.
+            }
+            catch (Exception ex)
+            {
+                Logger.getLogger(WordSearchForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else if (rbtnContains.isSelected() == true)
         {

@@ -5,6 +5,7 @@
 package BLL;
 
 import DAL.WordSearchDBManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +14,11 @@ import DAL.WordSearchDBManager;
 public class WordSearchManager
 {
     private WordSearchDBManager db;
-    public String getList() throws Exception
+    public WordSearchManager()
+    {
+        db = new WordSearchDBManager();
+    }
+    public ArrayList getList() throws Exception
     {
         return db.getList();
     }
