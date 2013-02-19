@@ -17,7 +17,6 @@ public class WordSearchForm extends javax.swing.JFrame
     public WordSearchForm()
     {
         initComponents();
-        setTitle(null);
     }
 
     /**
