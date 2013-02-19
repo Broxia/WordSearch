@@ -39,7 +39,7 @@
                       <Component id="lblCount" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblCountDone" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace pref="151" max="32767" attributes="0"/>
+                      <EmptySpace pref="154" max="32767" attributes="0"/>
                       <Component id="btnClose" min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -190,6 +190,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="btngrpSearchType"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Begins with"/>
           </Properties>
         </Component>

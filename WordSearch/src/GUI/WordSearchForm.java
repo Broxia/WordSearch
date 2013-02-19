@@ -87,6 +87,7 @@ public class WordSearchForm extends javax.swing.JFrame
         pnlSearchType.setName(""); // NOI18N
 
         btngrpSearchType.add(rbtnBeginsWith);
+        rbtnBeginsWith.setSelected(true);
         rbtnBeginsWith.setText("Begins with");
 
         btngrpSearchType.add(rbtnContains);
@@ -200,7 +201,7 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(lblCount)
                         .add(18, 18, 18)
                         .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 151, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 154, Short.MAX_VALUE)
                         .add(btnClose, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
