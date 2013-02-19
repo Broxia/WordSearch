@@ -267,7 +267,6 @@ public class WordSearchForm extends javax.swing.JFrame
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
         caseSensitive();
-
         if (rbtnBeginsWith.isSelected() == true)
         {
             listModel.clear();
@@ -286,14 +285,47 @@ public class WordSearchForm extends javax.swing.JFrame
         else if (rbtnContains.isSelected() == true)
         {
             listModel.clear();
+            try
+            {
+                for (Object list : wsm.contains(txtSearch.getText()))
+                {
+                    listModel.addElement(list.toString());
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERROR - " + e.getMessage());
+            }
         }
         else if (rbtnEndswith.isSelected() == true)
         {
             listModel.clear();
+            try
+            {
+                for (Object list : wsm.endsWith(txtSearch.getText()))
+                {
+                    listModel.addElement(list.toString());
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERROR - " + e.getMessage());
+            }
         }
         else if (rbtnExact.isSelected() == true)
         {
             listModel.clear();
+            try
+            {
+                for (Object list : wsm.exact(txtSearch.getText()))
+                {
+                    listModel.addElement(list.toString());
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERROR - " + e.getMessage());
+            }
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -301,6 +333,7 @@ public class WordSearchForm extends javax.swing.JFrame
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClearActionPerformed
     {//GEN-HEADEREND:event_btnClearActionPerformed
         txtSearch.setText("");
+        listModel.clear();
     }//GEN-LAST:event_btnClearActionPerformed
 
     /**
