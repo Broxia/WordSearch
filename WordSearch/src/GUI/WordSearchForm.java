@@ -64,8 +64,6 @@ public class WordSearchForm extends javax.swing.JFrame
 
         lblResult.setText("Result:");
 
-        jScrollPane1.setViewportView(lstResults);
-
         pnlSearchType.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlSearchType.setName(""); // NOI18N
 
