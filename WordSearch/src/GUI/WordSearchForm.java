@@ -26,6 +26,7 @@ public class WordSearchForm extends javax.swing.JFrame
         wsm = new WordSearchManager();
         initComponents();
         listAll();
+        counter();
         setLocationRelativeTo(null);
         lstResults.setModel(listModel);
 
@@ -280,6 +281,7 @@ public class WordSearchForm extends javax.swing.JFrame
         {
             //Search By Exact Search Query.
         }
+        counter();
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
@@ -331,6 +333,12 @@ public class WordSearchForm extends javax.swing.JFrame
             {
                 System.out.println("ERROR - "+ e.getMessage());
             }
+    }
+    public void counter()
+    {
+        int i = listModel.getSize();
+        String nr = Integer.toString(i);
+        lblCountDone.setText(nr);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
