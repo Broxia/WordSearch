@@ -83,7 +83,7 @@ public class WordSearchDBManager
         while (br.ready())
         {
             String word = br.readLine();
-            if (word.equals(letters))
+            if (word.equalsIgnoreCase(letters))
             {
                 list.add(word);
             }
