@@ -324,7 +324,7 @@ public class WordSearchForm extends javax.swing.JFrame
     {//GEN-HEADEREND:event_mniNewFileActionPerformed
         JFileChooser fc = new JFileChooser();
         int returnVal = fc.showOpenDialog(WordSearchForm.this);
-        fc.get
+//        fc.get
     }//GEN-LAST:event_mniNewFileActionPerformed
 
     /**
