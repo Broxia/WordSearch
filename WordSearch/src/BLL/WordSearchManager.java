@@ -26,43 +26,23 @@ public class WordSearchManager
         return db.getList();
     }
 
-    public ArrayList beginsWith(String letters) throws Exception
+    public ArrayList beginsWith(String letters, boolean caseSensitive) throws Exception
     {
-        return db.beginsWith(letters);
+        return db.beginsWith(letters, caseSensitive);
     }
 
-    public ArrayList contains(String letters) throws Exception
+    public ArrayList contains(String letters, boolean caseSensitive) throws Exception
     {
-        return db.contains(letters);
+        return db.contains(letters, caseSensitive);
     }
 
-    public ArrayList endsWith(String letters) throws Exception
+    public ArrayList endsWith(String letters, boolean caseSensitive) throws Exception
     {
-        return db.endsWith(letters);
+        return db.endsWith(letters, caseSensitive);
     }
 
-    public ArrayList exact(String letters) throws Exception
+    public ArrayList exact(String letters, boolean caseSensitive) throws Exception
     {
-        return db.exact(letters);
-    }
-
-    public ArrayList beginsWithCS(String letters) throws Exception
-    {
-        return db.beginsWithCS(letters);
-    }
-
-    public ArrayList containsCS(String letters) throws Exception
-    {
-        return db.containsCS(letters);
-    }
-
-    public ArrayList endsWithCS(String letters) throws Exception
-    {
-        return db.endsWithCS(letters);
-    }
-
-    public ArrayList exactCS(String letters) throws Exception
-    {
-        return db.exactCS(letters);
+        return db.exact(letters, caseSensitive);
     }
 }

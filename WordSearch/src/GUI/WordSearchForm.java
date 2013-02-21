@@ -272,129 +272,63 @@ public class WordSearchForm extends javax.swing.JFrame
         if (rbtnBeginsWith.isSelected() == true)
         {
             listModel.clear();
-            if (chkbxCaseSensitive.isSelected() == true)
+            try
             {
-                try
+                for (Object list : wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
                 {
-                    for (Object list : wsm.beginsWithCS(txtSearch.getText()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
+                    listModel.addElement(list.toString());
                 }
             }
-            else
+            catch (Exception e)
             {
-                try
-                {
-                    for (Object list : wsm.beginsWith(txtSearch.getText().toLowerCase()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
-                }
+                System.out.println("ERROR - " + e.getMessage());
             }
         }
         else if (rbtnContains.isSelected() == true)
         {
             listModel.clear();
-            if (chkbxCaseSensitive.isSelected() == true)
+
+            try
             {
-                try
+                for (Object list : wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
                 {
-                    for (Object list : wsm.containsCS(txtSearch.getText()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
+                    listModel.addElement(list.toString());
                 }
             }
-            else
+            catch (Exception e)
             {
-                try
-                {
-                    for (Object list : wsm.contains(txtSearch.getText().toLowerCase()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
-                }
+                System.out.println("ERROR - " + e.getMessage());
             }
         }
         else if (rbtnEndswith.isSelected() == true)
         {
             listModel.clear();
-            if (chkbxCaseSensitive.isSelected() == true)
+            try
             {
-                try
+                for (Object list : wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
                 {
-                    for (Object list : wsm.endsWithCS(txtSearch.getText()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
+                    listModel.addElement(list.toString());
                 }
             }
-            else
+            catch (Exception e)
             {
-                try
-                {
-                    for (Object list : wsm.endsWith(txtSearch.getText().toLowerCase()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
-                }
+                System.out.println("ERROR - " + e.getMessage());
             }
         }
         else if (rbtnExact.isSelected() == true)
         {
             listModel.clear();
-            if (chkbxCaseSensitive.isSelected() == true)
+
+            try
             {
-                try
+                for (Object list : wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
                 {
-                    for (Object list : wsm.exactCS(txtSearch.getText()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
+                    listModel.addElement(list.toString());
                 }
             }
-            else
+            catch (Exception e)
             {
-                try
-                {
-                    for (Object list : wsm.exact(txtSearch.getText().toLowerCase()))
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("ERROR - " + e.getMessage());
-                }
+                System.out.println("ERROR - " + e.getMessage());
             }
         }
         counter();
