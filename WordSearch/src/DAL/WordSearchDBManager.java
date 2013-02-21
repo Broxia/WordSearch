@@ -34,7 +34,7 @@ public class WordSearchDBManager
         ArrayList list = new ArrayList();
         while (br.ready())
         {
-            String word = br.readLine();
+            String word = br.readLine().toLowerCase();
             if (word.startsWith(letters))
             {
                 list.add(word);
@@ -50,7 +50,7 @@ public class WordSearchDBManager
         ArrayList list = new ArrayList();
         while (br.ready())
         {
-            String word = br.readLine();
+            String word = br.readLine().toLowerCase();
             if (word.contains(letters))
             {
                 list.add(word);
@@ -66,7 +66,7 @@ public class WordSearchDBManager
         ArrayList list = new ArrayList();
         while (br.ready())
         {
-            String word = br.readLine();
+            String word = br.readLine().toLowerCase();
             if (word.endsWith(letters))
             {
                 list.add(word);
@@ -84,6 +84,69 @@ public class WordSearchDBManager
         {
             String word = br.readLine();
             if (word.equalsIgnoreCase(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+     public ArrayList beginsWithCS(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.startsWith(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+    
+    public ArrayList containsCS(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.contains(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+    
+    public ArrayList endsWithCS(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.endsWith(letters))
+            {
+                list.add(word);
+            }
+        }
+        br.close();
+        return list;
+    }
+    
+     public ArrayList exactCS(String letters) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
+        ArrayList list = new ArrayList();
+        while (br.ready())
+        {
+            String word = br.readLine();
+            if (word.equals(letters))
             {
                 list.add(word);
             }
