@@ -266,12 +266,19 @@ public class WordSearchForm extends javax.swing.JFrame
     private void chkbxCaseSensitiveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chkbxCaseSensitiveActionPerformed
     {//GEN-HEADEREND:event_chkbxCaseSensitiveActionPerformed
     }//GEN-LAST:event_chkbxCaseSensitiveActionPerformed
-
+    
+    /*
+     * Dispose the frame when close is clicked
+     */
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCloseActionPerformed
     {//GEN-HEADEREND:event_btnCloseActionPerformed
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
-
+    
+    /*
+     * Clears the Jlist before inserting the search results
+     * Search with the specified search type
+     */
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
         listModel.clear();
@@ -293,7 +300,10 @@ public class WordSearchForm extends javax.swing.JFrame
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
-
+    
+    /*
+     * Clears the search box and the Jlist pane
+     */
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClearActionPerformed
     {//GEN-HEADEREND:event_btnClearActionPerformed
         txtSearch.setText("");
@@ -306,7 +316,7 @@ public class WordSearchForm extends javax.swing.JFrame
      */
     public static void main(String args[])
     {
-        /* Set the Nimbus look and feel */
+        /* Set the look and feel */
         try
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -325,7 +335,10 @@ public class WordSearchForm extends javax.swing.JFrame
             }
         });
     }
-
+    
+    /*
+     * Gets a list from a text file from the DAL layer.
+     */
     private void listAll()
     {
         try
@@ -341,6 +354,9 @@ public class WordSearchForm extends javax.swing.JFrame
         }
     }
 
+    /*
+     * Gets the size of the list and shows it
+     */
     private void counter()
     {
         int i = listModel.getSize();
@@ -348,6 +364,9 @@ public class WordSearchForm extends javax.swing.JFrame
         lblCountDone.setText(nr);
     }
 
+    /*
+     * Searching using beginsWith as the search type
+     */
     private void beginsWith()
     {
         option = cmbbxLimitation.getSelectedItem().toString();
@@ -395,6 +414,9 @@ public class WordSearchForm extends javax.swing.JFrame
         }
     }
 
+    /*
+     * Searching using contains as the search type
+     */
     private void contains()
     {
         option = cmbbxLimitation.getSelectedItem().toString();
@@ -442,6 +464,9 @@ public class WordSearchForm extends javax.swing.JFrame
         }
     }
 
+    /*
+     * Searching using endsWith as the search type
+     */
     private void endsWith()
     {
         option = cmbbxLimitation.getSelectedItem().toString();
@@ -488,7 +513,10 @@ public class WordSearchForm extends javax.swing.JFrame
             System.out.println("ERROR - " + e.getMessage());
         }
     }
-
+    
+    /*
+     * Searching using exact as the search type
+     */
     private void exact()
     {
         option = cmbbxLimitation.getSelectedItem().toString();

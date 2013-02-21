@@ -15,6 +15,11 @@ import java.util.ArrayList;
 public class WordSearchDBManager
 {
 
+    /**
+     * Returns the entire text document as an ArrayList
+     * @return ArrayList list
+     * @throws Exception
+     */
     public ArrayList getList() throws Exception
     {
         BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
@@ -28,6 +33,14 @@ public class WordSearchDBManager
         return list;
     }
 
+    /**
+     * Returns an ArrayList where the letters and caseSensitve parameters 
+     * have been taken into account
+     * @param letters The letters a word begins with
+     * @param caseSensitive If the word is case sensitive or not
+     * @return an ArrayList containing words beginning with specified letters
+     * @throws Exception
+     */
     public ArrayList beginsWith(String letters, boolean caseSensitive) throws Exception
     {
         BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
@@ -54,6 +67,14 @@ public class WordSearchDBManager
         return list;
     }
 
+    /**
+     * Returns an ArrayList where the letters and caseSensitve parameters 
+     * have been taken into account
+     * @param letters The letters a word contains
+     * @param caseSensitive If the word is case sensitive or not
+     * @return an ArrayList with words containing the specified letters
+     * @throws Exception
+     */
     public ArrayList contains(String letters, boolean caseSensitive) throws Exception
     {
         BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
@@ -80,6 +101,14 @@ public class WordSearchDBManager
         return list;
     }
 
+    /**
+     * Returns an ArrayList where the letters and caseSensitve parameters 
+     * have been taken into account
+     * @param letters The letters a word ends with
+     * @param caseSensitive If the word is case sensitive or not
+     * @return an ArrayList containing words ending with the specified letters
+     * @throws Exception
+     */
     public ArrayList endsWith(String letters, boolean caseSensitive) throws Exception
     {
         BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
@@ -106,6 +135,14 @@ public class WordSearchDBManager
         return list;
     }
 
+    /**
+     * Returns an ArrayList where the letters and caseSensitve parameters 
+     * have been taken into account
+     * @param letters The exact letters a word contains
+     * @param caseSensitive If the word is case sensitive or not
+     * @return an ArrayList with words containing the exact letters specified
+     * @throws Exception
+     */
     public ArrayList exact(String letters, boolean caseSensitive) throws Exception
     {
         BufferedReader br = new BufferedReader(new FileReader("brit-a-z.txt"));
