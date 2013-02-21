@@ -326,7 +326,7 @@ public class WordSearchForm extends javax.swing.JFrame
         });
     }
 
-    public void listAll()
+    private void listAll()
     {
         try
         {
@@ -341,7 +341,7 @@ public class WordSearchForm extends javax.swing.JFrame
         }
     }
 
-    public void counter()
+    private void counter()
     {
         int i = listModel.getSize();
         String nr = Integer.toString(i);
