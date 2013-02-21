@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 import java.awt.Component;
+import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
@@ -66,9 +67,6 @@ public class WordSearchForm extends javax.swing.JFrame
         btnClose = new javax.swing.JButton();
         lblCount = new javax.swing.JLabel();
         lblCountDone = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        mnFile = new javax.swing.JMenu();
-        mniNewFile = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WordSearch");
@@ -200,23 +198,6 @@ public class WordSearchForm extends javax.swing.JFrame
 
         lblCount.setText("Count:");
 
-        mnFile.setText("File");
-
-        mniNewFile.setIcon(new javax.swing.ImageIcon("D:\\Dropbox\\Netbeans projects\\WordSearch\\WordSearch\\Files-icon.png")); // NOI18N
-        mniNewFile.setText("New file");
-        mniNewFile.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                mniNewFileActionPerformed(evt);
-            }
-        });
-        mnFile.add(mniNewFile);
-
-        jMenuBar1.add(mnFile);
-
-        setJMenuBar(jMenuBar1);
-
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -276,7 +257,7 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(lblCount, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(lblCountDone, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -319,13 +300,6 @@ public class WordSearchForm extends javax.swing.JFrame
         listModel.clear();
         counter();
     }//GEN-LAST:event_btnClearActionPerformed
-
-    private void mniNewFileActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mniNewFileActionPerformed
-    {//GEN-HEADEREND:event_mniNewFileActionPerformed
-        JFileChooser fc = new JFileChooser();
-        int returnVal = fc.showOpenDialog(WordSearchForm.this);
-//        fc.get
-    }//GEN-LAST:event_mniNewFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -568,15 +542,12 @@ public class WordSearchForm extends javax.swing.JFrame
     private javax.swing.ButtonGroup btngrpSearchType;
     private javax.swing.JCheckBox chkbxCaseSensitive;
     private javax.swing.JComboBox cmbbxLimitation;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCount;
     private javax.swing.JLabel lblCountDone;
     private javax.swing.JLabel lblQuery;
     private javax.swing.JLabel lblResult;
     private javax.swing.JList lstResults;
-    private javax.swing.JMenu mnFile;
-    private javax.swing.JMenuItem mniNewFile;
     private javax.swing.JPanel pnlLimitation;
     private javax.swing.JPanel pnlSearchType;
     private javax.swing.JPanel pnlStyle;
