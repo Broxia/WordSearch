@@ -5,6 +5,7 @@
 package GUI;
 
 import BLL.WordSearchManager;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 
@@ -17,6 +18,7 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private DefaultListModel listModel = new DefaultListModel();
     private WordSearchManager wsm;
+    private String option;
 
     /**
      * Creates new form WordSearchForm
@@ -269,67 +271,22 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
+        listModel.clear();
         if (rbtnBeginsWith.isSelected() == true)
         {
-            listModel.clear();
-            try
-            {
-                for (Object list : wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
-                {
-                    listModel.addElement(list.toString());
-                }
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERROR - " + e.getMessage());
-            }
+            beginsWith();
         }
         else if (rbtnContains.isSelected() == true)
         {
-            listModel.clear();
-
-            try
-            {
-                for (Object list : wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
-                {
-                    listModel.addElement(list.toString());
-                }
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERROR - " + e.getMessage());
-            }
+            contains();
         }
         else if (rbtnEndswith.isSelected() == true)
         {
-            listModel.clear();
-            try
-            {
-                for (Object list : wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
-                {
-                    listModel.addElement(list.toString());
-                }
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERROR - " + e.getMessage());
-            }
+            endsWith();
         }
         else if (rbtnExact.isSelected() == true)
         {
-            listModel.clear();
-
-            try
-            {
-                for (Object list : wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected()))
-                {
-                    listModel.addElement(list.toString());
-                }
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERROR - " + e.getMessage());
-            }
+            exact();
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -386,6 +343,194 @@ public class WordSearchForm extends javax.swing.JFrame
         int i = listModel.getSize();
         String nr = Integer.toString(i);
         lblCountDone.setText(nr);
+    }
+
+    private void beginsWith()
+    {
+        option = cmbbxLimitation.getSelectedItem().toString();
+        try
+        {
+            ArrayList all = wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected());
+
+            switch (option)
+            {
+                case "None":
+                    for (Object list : all)
+                    {
+                        listModel.addElement(list.toString());
+                    }
+                    break;
+                case "10":
+                    for (int i = 0; i < 10; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "20":
+                    for (int i = 0; i < 20; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "50":
+                    for (int i = 0; i < 50; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "100":
+                    for (int i = 0; i < 100; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
+    }
+
+    private void contains()
+    {
+        option = cmbbxLimitation.getSelectedItem().toString();
+        try
+        {
+            ArrayList all = wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected());
+
+            switch (option)
+            {
+                case "None":
+                    for (Object list : all)
+                    {
+                        listModel.addElement(list.toString());
+                    }
+                    break;
+                case "10":
+                    for (int i = 0; i < 10; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "20":
+                    for (int i = 0; i < 20; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "50":
+                    for (int i = 0; i < 50; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "100":
+                    for (int i = 0; i < 100; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
+    }
+
+    private void endsWith()
+    {
+        option = cmbbxLimitation.getSelectedItem().toString();
+        try
+        {
+            ArrayList all = wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected());
+
+            switch (option)
+            {
+                case "None":
+                    for (Object list : all)
+                    {
+                        listModel.addElement(list.toString());
+                    }
+                    break;
+                case "10":
+                    for (int i = 0; i < 10; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "20":
+                    for (int i = 0; i < 20; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "50":
+                    for (int i = 0; i < 50; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "100":
+                    for (int i = 0; i < 100; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
+    }
+
+    private void exact()
+    {
+        option = cmbbxLimitation.getSelectedItem().toString();
+        try
+        {
+            ArrayList all = wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected());
+
+            switch (option)
+            {
+                case "None":
+                    for (Object list : all)
+                    {
+                        listModel.addElement(list.toString());
+                    }
+                    break;
+                case "10":
+                    for (int i = 0; i < 10; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "20":
+                    for (int i = 0; i < 20; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "50":
+                    for (int i = 0; i < 50; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+                case "100":
+                    for (int i = 0; i < 100; i++)
+                    {
+                        listModel.addElement(all.get(i));
+                    }
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
