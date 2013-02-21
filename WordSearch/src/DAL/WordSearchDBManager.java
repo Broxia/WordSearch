@@ -82,7 +82,7 @@ public class WordSearchDBManager
         ArrayList list = new ArrayList();
         while (br.ready())
         {
-            String word = br.readLine();
+            String word = br.readLine().toLowerCase();
             if (word.equalsIgnoreCase(letters))
             {
                 list.add(word);
