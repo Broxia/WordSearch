@@ -8,9 +8,6 @@ import BLL.WordSearchManager;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
-import java.awt.Component;
-import java.io.File;
-import javax.swing.JFileChooser;
 
 /**
  *
