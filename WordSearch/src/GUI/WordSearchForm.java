@@ -269,7 +269,6 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
-        caseSensitive();
         if (rbtnBeginsWith.isSelected() == true)
         {
             listModel.clear();
@@ -363,19 +362,6 @@ public class WordSearchForm extends javax.swing.JFrame
                 new WordSearchForm().setVisible(true);
             }
         });
-    }
-
-    public void caseSensitive()
-    {
-        String search = txtSearch.getText();
-        if (chkbxCaseSensitive.isSelected() == false)
-        {
-            search.toLowerCase();
-        }
-        else
-        {
-            //do nothing
-        }
     }
 
     public void listAll()
