@@ -1,22 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-/**
- *
- * @author DennisList
- */
 public class WordSearchDBManager
 {
 
     /**
      * Returns the entire text document as an ArrayList
+     *
      * @param path the path of the file it reads from
      * @return ArrayList list
      * @throws Exception
@@ -35,8 +28,9 @@ public class WordSearchDBManager
     }
 
     /**
-     * Returns an ArrayList where the letters and caseSensitve parameters 
-     * have been taken into account
+     * Returns an ArrayList where the letters and caseSensitve parameters have
+     * been taken into account
+     *
      * @param path the path of the file it reads from
      * @param letters The letters a word begins with
      * @param caseSensitive If the word is case sensitive or not
@@ -70,8 +64,9 @@ public class WordSearchDBManager
     }
 
     /**
-     * Returns an ArrayList where the letters and caseSensitve parameters 
-     * have been taken into account
+     * Returns an ArrayList where the letters and caseSensitve parameters have
+     * been taken into account
+     *
      * @param path the path of the file it reads from
      * @param letters The letters a word contains
      * @param caseSensitive If the word is case sensitive or not
@@ -105,8 +100,9 @@ public class WordSearchDBManager
     }
 
     /**
-     * Returns an ArrayList where the letters and caseSensitve parameters 
-     * have been taken into account
+     * Returns an ArrayList where the letters and caseSensitve parameters have
+     * been taken into account
+     *
      * @param path the path of the file it reads from
      * @param letters The letters a word ends with
      * @param caseSensitive If the word is case sensitive or not
@@ -140,8 +136,9 @@ public class WordSearchDBManager
     }
 
     /**
-     * Returns an ArrayList where the letters and caseSensitve parameters 
-     * have been taken into account
+     * Returns an ArrayList where the letters and caseSensitve parameters have
+     * been taken into account
+     *
      * @param path the path of the file it reads from
      * @param letters The exact letters a word contains
      * @param caseSensitive If the word is case sensitive or not
@@ -150,7 +147,7 @@ public class WordSearchDBManager
      */
     public ArrayList exact(String letters, boolean caseSensitive, String path) throws Exception
     {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+        BufferedReader br = new BufferedReader(new FileReader(path));
         ArrayList list = new ArrayList();
         while (br.ready())
         {
