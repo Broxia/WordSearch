@@ -13,6 +13,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jsubmenuOpen">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/GUI/Folder-Open-icon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Open"/>
               </Properties>
               <Events>

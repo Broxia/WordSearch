@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -203,6 +204,7 @@ public class WordSearchForm extends javax.swing.JFrame
 
         jmenuFile.setText("File");
 
+        jsubmenuOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Folder-Open-icon.png"))); // NOI18N
         jsubmenuOpen.setText("Open");
         jsubmenuOpen.addActionListener(new java.awt.event.ActionListener()
         {
@@ -336,11 +338,22 @@ public class WordSearchForm extends javax.swing.JFrame
     private void jsubmenuOpenActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jsubmenuOpenActionPerformed
     {//GEN-HEADEREND:event_jsubmenuOpenActionPerformed
         JFileChooser fc = new JFileChooser();
-        fc.showOpenDialog(jsubmenuOpen);
-        String filePath = fc.getSelectedFile().getAbsolutePath();
-        path = filePath;
-        listModel.clear();
-        listAll();
+        fc.setMultiSelectionEnabled(false);
+        fc.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text document", "txt");
+        fc.setFileFilter(filter);
+        try
+        {
+            fc.showOpenDialog(jsubmenuOpen);
+            String filePath = fc.getSelectedFile().getAbsolutePath();
+            path = filePath;
+            listModel.clear();
+            listAll();
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR - " + e.getMessage());
+        }
     }//GEN-LAST:event_jsubmenuOpenActionPerformed
 
     /**
