@@ -56,20 +56,22 @@
                   <Component id="lblQuery" min="-2" max="-2" attributes="0"/>
                   <Component id="lblResult" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblCount" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblCountDone" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace pref="162" max="32767" attributes="0"/>
-                      <Component id="btnClose" min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblCountOf" pref="59" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                          <Component id="txtSearch" pref="164" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                      <Component id="txtSearch" pref="164" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="pnlLimitation" max="32767" attributes="0"/>
@@ -82,8 +84,12 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnClose" min="-2" pref="73" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,6 +125,7 @@
                           <Component id="lblCountDone" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="lblCountOf" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -353,6 +360,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCountDone">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCountOf">
     </Component>
   </SubComponents>
 </Form>

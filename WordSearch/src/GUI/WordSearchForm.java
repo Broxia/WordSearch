@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class WordSearchForm extends javax.swing.JFrame
 {
-
+    
     private DefaultListModel listModel = new DefaultListModel();
     private WordSearchManager wsm;
     private String option;
@@ -26,7 +26,7 @@ public class WordSearchForm extends javax.swing.JFrame
         counter();
         setLocationRelativeTo(null);
         lstResults.setModel(listModel);
-
+        
     }
 
     /**
@@ -59,6 +59,7 @@ public class WordSearchForm extends javax.swing.JFrame
         btnClose = new javax.swing.JButton();
         lblCount = new javax.swing.JLabel();
         lblCountDone = new javax.swing.JLabel();
+        lblCountOf = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuFile = new javax.swing.JMenu();
         jsubmenuOpen = new javax.swing.JMenuItem();
@@ -219,18 +220,19 @@ public class WordSearchForm extends javax.swing.JFrame
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(lblQuery)
                     .add(lblResult))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 11, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(layout.createSequentialGroup()
                         .add(lblCount)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 162, Short.MAX_VALUE)
-                        .add(btnClose, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(lblCountOf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .add(txtSearch, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .add(txtSearch, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(pnlLimitation, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,8 +241,11 @@ public class WordSearchForm extends javax.swing.JFrame
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(btnSearch, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(btnClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 74, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                                .add(btnClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 74, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(90, 90, 90)
+                        .add(btnClose, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -268,7 +273,8 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(2, 2, 2)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(lblCount, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                            .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(lblCountOf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -294,21 +300,28 @@ public class WordSearchForm extends javax.swing.JFrame
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSearchActionPerformed
     {//GEN-HEADEREND:event_btnSearchActionPerformed
         listModel.clear();
-        if (rbtnBeginsWith.isSelected() == true)
+        try
         {
-            beginsWith();
+            if (rbtnBeginsWith.isSelected() == true)
+            {
+                limitation(wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+            }
+            else if (rbtnContains.isSelected() == true)
+            {
+                limitation(wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+            }
+            else if (rbtnEndswith.isSelected() == true)
+            {
+                limitation(wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+            }
+            else if (rbtnExact.isSelected() == true)
+            {
+                limitation(wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+            }
         }
-        else if (rbtnContains.isSelected() == true)
+        catch (Exception e)
         {
-            contains();
-        }
-        else if (rbtnEndswith.isSelected() == true)
-        {
-            endsWith();
-        }
-        else if (rbtnExact.isSelected() == true)
-        {
-            exact();
+            System.out.println("ERROR - " + e.getMessage());
         }
         counter();
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -401,70 +414,29 @@ public class WordSearchForm extends javax.swing.JFrame
     }
 
     /*
-     * Searching using beginsWith as the search type
+     * Gets the total size of the list, and shows a nr of nr in the gui.
      */
-    private void beginsWith()
+    private void countOf(ArrayList all)
     {
-        option = cmbbxLimitation.getSelectedItem().toString();
-        try
-        {
-            ArrayList all = wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path);
-
-            switch (option)
-            {
-                case "None":
-                    for (Object list : all)
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                    break;
-                case "10":
-                    for (int i = 0; i < 10; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "20":
-                    for (int i = 0; i < 20; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "50":
-                    for (int i = 0; i < 50; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "100":
-                    for (int i = 0; i < 100; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("ERROR - " + e.getMessage());
-        }
+        int i = all.size();
+        String nr = Integer.toString(i);
+        lblCountOf.setText("Of: " + nr);
     }
 
     /*
-     * Searching using contains as the search type
+     * Uses the limitations, so it only shows the chosen limitation of words.
      */
-    private void contains()
+    private void limitation(ArrayList all)
     {
-        option = cmbbxLimitation.getSelectedItem().toString();
-        try
+        if (!all.isEmpty())
         {
-            ArrayList all = wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path);
-
+            option = cmbbxLimitation.getSelectedItem().toString();
             switch (option)
             {
                 case "None":
                     for (Object list : all)
                     {
+                        lblCountOf.setText("");
                         listModel.addElement(list.toString());
                     }
                     break;
@@ -472,131 +444,35 @@ public class WordSearchForm extends javax.swing.JFrame
                     for (int i = 0; i < 10; i++)
                     {
                         listModel.addElement(all.get(i));
+                        countOf(all);
                     }
                     break;
                 case "20":
                     for (int i = 0; i < 20; i++)
                     {
                         listModel.addElement(all.get(i));
+                        countOf(all);
                     }
                     break;
                 case "50":
                     for (int i = 0; i < 50; i++)
                     {
                         listModel.addElement(all.get(i));
+                        countOf(all);
                     }
                     break;
                 case "100":
                     for (int i = 0; i < 100; i++)
                     {
                         listModel.addElement(all.get(i));
+                        countOf(all);
                     }
                     break;
             }
         }
-        catch (Exception e)
+        else if (!"None".equals(cmbbxLimitation.getSelectedItem().toString()))
         {
-            System.out.println("ERROR - " + e.getMessage());
-        }
-    }
-
-    /*
-     * Searching using endsWith as the search type
-     */
-    private void endsWith()
-    {
-        option = cmbbxLimitation.getSelectedItem().toString();
-        try
-        {
-            ArrayList all = wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path);
-
-            switch (option)
-            {
-                case "None":
-                    for (Object list : all)
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                    break;
-                case "10":
-                    for (int i = 0; i < 10; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "20":
-                    for (int i = 0; i < 20; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "50":
-                    for (int i = 0; i < 50; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "100":
-                    for (int i = 0; i < 100; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("ERROR - " + e.getMessage());
-        }
-    }
-
-    /*
-     * Searching using exact as the search type
-     */
-    private void exact()
-    {
-        option = cmbbxLimitation.getSelectedItem().toString();
-        try
-        {
-            ArrayList all = wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path);
-
-            switch (option)
-            {
-                case "None":
-                    for (Object list : all)
-                    {
-                        listModel.addElement(list.toString());
-                    }
-                    break;
-                case "10":
-                    for (int i = 0; i < 10; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "20":
-                    for (int i = 0; i < 20; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "50":
-                    for (int i = 0; i < 50; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-                case "100":
-                    for (int i = 0; i < 100; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                    }
-                    break;
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("ERROR - " + e.getMessage());
+            lblCountOf.setText("Of: 0");
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -612,6 +488,7 @@ public class WordSearchForm extends javax.swing.JFrame
     private javax.swing.JMenuItem jsubmenuOpen;
     private javax.swing.JLabel lblCount;
     private javax.swing.JLabel lblCountDone;
+    private javax.swing.JLabel lblCountOf;
     private javax.swing.JLabel lblQuery;
     private javax.swing.JLabel lblResult;
     private javax.swing.JList lstResults;
