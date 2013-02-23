@@ -63,6 +63,7 @@ public class WordSearchForm extends javax.swing.JFrame
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuFile = new javax.swing.JMenu();
         jsubmenuOpen = new javax.swing.JMenuItem();
+        mniExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WordSearch");
@@ -206,6 +207,16 @@ public class WordSearchForm extends javax.swing.JFrame
             }
         });
         jmenuFile.add(jsubmenuOpen);
+
+        mniExit.setText("Exit");
+        mniExit.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                mniExitActionPerformed(evt);
+            }
+        });
+        jmenuFile.add(mniExit);
 
         jMenuBar1.add(jmenuFile);
 
@@ -359,6 +370,13 @@ public class WordSearchForm extends javax.swing.JFrame
             System.out.println("ERROR - " + e.getMessage());
         }
     }//GEN-LAST:event_jsubmenuOpenActionPerformed
+    /*
+     * Exits the program
+     */
+    private void mniExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mniExitActionPerformed
+    {//GEN-HEADEREND:event_mniExitActionPerformed
+        dispose();
+    }//GEN-LAST:event_mniExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,6 +517,7 @@ public class WordSearchForm extends javax.swing.JFrame
     private javax.swing.JLabel lblQuery;
     private javax.swing.JLabel lblResult;
     private javax.swing.JList lstResults;
+    private javax.swing.JMenuItem mniExit;
     private javax.swing.JPanel pnlLimitation;
     private javax.swing.JPanel pnlSearchType;
     private javax.swing.JPanel pnlStyle;
