@@ -345,6 +345,7 @@ public class WordSearchForm extends javax.swing.JFrame
         txtSearch.setText("");
         listModel.clear();
         counter();
+        lblCountOf.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
     /*
