@@ -204,8 +204,9 @@ public class WordSearchForm extends javax.swing.JFrame
 
         jmenuFile.setText("File");
 
+        jsubmenuOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
         jsubmenuOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Folder-Open-icon.png"))); // NOI18N
-        jsubmenuOpen.setText("Open");
+        jsubmenuOpen.setText("<html><u>O</u>pen</html>");
         jsubmenuOpen.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -215,8 +216,9 @@ public class WordSearchForm extends javax.swing.JFrame
         });
         jmenuFile.add(jsubmenuOpen);
 
+        mniExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK));
         mniExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/close_icon.gif"))); // NOI18N
-        mniExit.setText("Exit");
+        mniExit.setText("<html><u>E</u>xit</html>");
         mniExit.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
