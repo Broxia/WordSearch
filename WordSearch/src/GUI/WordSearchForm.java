@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class WordSearchForm extends javax.swing.JFrame
 {
-    
+
     private DefaultListModel listModel = new DefaultListModel();
     private WordSearchManager wsm;
     private String option;
@@ -26,7 +26,7 @@ public class WordSearchForm extends javax.swing.JFrame
         counter();
         setLocationRelativeTo(null);
         lstResults.setModel(listModel);
-        
+
     }
 
     /**
@@ -430,44 +430,51 @@ public class WordSearchForm extends javax.swing.JFrame
     {
         if (!all.isEmpty())
         {
-            option = cmbbxLimitation.getSelectedItem().toString();
-            switch (option)
+            try
             {
-                case "None":
-                    for (Object list : all)
-                    {
-                        lblCountOf.setText("");
-                        listModel.addElement(list.toString());
-                    }
-                    break;
-                case "10":
-                    for (int i = 0; i < 10; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                        countOf(all);
-                    }
-                    break;
-                case "20":
-                    for (int i = 0; i < 20; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                        countOf(all);
-                    }
-                    break;
-                case "50":
-                    for (int i = 0; i < 50; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                        countOf(all);
-                    }
-                    break;
-                case "100":
-                    for (int i = 0; i < 100; i++)
-                    {
-                        listModel.addElement(all.get(i));
-                        countOf(all);
-                    }
-                    break;
+                option = cmbbxLimitation.getSelectedItem().toString();
+                switch (option)
+                {
+                    case "None":
+                        for (Object list : all)
+                        {
+                            lblCountOf.setText("");
+                            listModel.addElement(list.toString());
+                        }
+                        break;
+                    case "10":
+                        for (int i = 0; i < 10; i++)
+                        {
+                            listModel.addElement(all.get(i));
+                            countOf(all);
+                        }
+                        break;
+                    case "20":
+                        for (int i = 0; i < 20; i++)
+                        {
+                            listModel.addElement(all.get(i));
+                            countOf(all);
+                        }
+                        break;
+                    case "50":
+                        for (int i = 0; i < 50; i++)
+                        {
+                            listModel.addElement(all.get(i));
+                            countOf(all);
+                        }
+                        break;
+                    case "100":
+                        for (int i = 0; i < 100; i++)
+                        {
+                            listModel.addElement(all.get(i));
+                            countOf(all);
+                        }
+                        break;
+                }
+            }
+            catch (IndexOutOfBoundsException e)
+            {
+                //do nothing
             }
         }
         else if (!"None".equals(cmbbxLimitation.getSelectedItem().toString()))
