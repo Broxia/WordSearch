@@ -26,7 +26,7 @@ public class WordSearchForm extends javax.swing.JFrame
         counter();
         setLocationRelativeTo(null);
         lstResults.setModel(listModel);
-
+        getRootPane().setDefaultButton(btnSearch);
     }
 
     /**
