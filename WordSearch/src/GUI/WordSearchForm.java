@@ -87,6 +87,13 @@ public class WordSearchForm extends javax.swing.JFrame
                 btnSearchActionPerformed(evt);
             }
         });
+        btnSearch.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                EnterPressed(evt);
+            }
+        });
 
         lblResult.setText("Result:");
 
@@ -208,6 +215,7 @@ public class WordSearchForm extends javax.swing.JFrame
         });
         jmenuFile.add(jsubmenuOpen);
 
+        mniExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/close_icon.gif"))); // NOI18N
         mniExit.setText("Exit");
         mniExit.addActionListener(new java.awt.event.ActionListener()
         {
@@ -239,9 +247,8 @@ public class WordSearchForm extends javax.swing.JFrame
                         .add(lblCountDone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(lblCountOf, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
-                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .add(txtSearch, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .add(txtSearch, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -377,6 +384,11 @@ public class WordSearchForm extends javax.swing.JFrame
     {//GEN-HEADEREND:event_mniExitActionPerformed
         dispose();
     }//GEN-LAST:event_mniExitActionPerformed
+
+    private void EnterPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_EnterPressed
+    {//GEN-HEADEREND:event_EnterPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnterPressed
 
     /**
      * @param args the command line arguments
