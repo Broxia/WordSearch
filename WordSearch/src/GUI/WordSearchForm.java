@@ -460,12 +460,12 @@ public class WordSearchForm extends javax.swing.JFrame
      */
     private void limitation(ArrayList all)
     {
+        String selected = cmbbxLimitation.getSelectedItem().toString();
         if (!all.isEmpty())
         {
             try
             {
-                String option = cmbbxLimitation.getSelectedItem().toString();
-                switch (option)
+                switch (selected)
                 {
                     case "None":
                         for (Object list : all)
@@ -509,7 +509,7 @@ public class WordSearchForm extends javax.swing.JFrame
                 //do nothing
             }
         }
-        else if (!"None".equals(cmbbxLimitation.getSelectedItem().toString()))
+        else if (!"None".equals(selected))
         {
             lblCountOf.setText("Of: 0");
         }
