@@ -12,7 +12,6 @@ public class WordSearchForm extends javax.swing.JFrame
 
     private DefaultListModel listModel = new DefaultListModel();
     private WordSearchManager wsm;
-    private String option;
     private String path = "brit-a-z.txt";
 
     /**
@@ -465,7 +464,7 @@ public class WordSearchForm extends javax.swing.JFrame
         {
             try
             {
-                option = cmbbxLimitation.getSelectedItem().toString();
+                String option = cmbbxLimitation.getSelectedItem().toString();
                 switch (option)
                 {
                     case "None":
