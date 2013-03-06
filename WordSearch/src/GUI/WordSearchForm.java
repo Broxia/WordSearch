@@ -19,7 +19,7 @@ public class WordSearchForm extends javax.swing.JFrame
      */
     public WordSearchForm()
     {
-        wsm = new WordSearchManager();
+        wsm = WordSearchManager.getInstance();
         initComponents();
         listAll();
         counter();
