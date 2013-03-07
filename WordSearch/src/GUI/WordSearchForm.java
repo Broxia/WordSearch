@@ -323,19 +323,19 @@ public class WordSearchForm extends javax.swing.JFrame
         {
             if (rbtnBeginsWith.isSelected() == true)
             {
-                limitation(wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+                limitation(wsm.beginsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()));
             }
             else if (rbtnContains.isSelected() == true)
             {
-                limitation(wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+                limitation(wsm.contains(txtSearch.getText(), chkbxCaseSensitive.isSelected()));
             }
             else if (rbtnEndswith.isSelected() == true)
             {
-                limitation(wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+                limitation(wsm.endsWith(txtSearch.getText(), chkbxCaseSensitive.isSelected()));
             }
             else if (rbtnExact.isSelected() == true)
             {
-                limitation(wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected(), path));
+                limitation(wsm.exact(txtSearch.getText(), chkbxCaseSensitive.isSelected()));
             }
         }
         catch (Exception e)
@@ -373,6 +373,7 @@ public class WordSearchForm extends javax.swing.JFrame
             path = filePath;
             listModel.clear();
             listAll();
+            counter();
         }
         catch (Exception e)
         {

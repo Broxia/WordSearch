@@ -17,21 +17,23 @@ public class WordSearchManager
     private ArrayList fullList;
     private WordSearchDBManager db;
     private static WordSearchManager instance = null;
+    private static String path;
 
     /**
      * Creates an instance of the DAL layer
      */
-    private WordSearchManager()
+    private WordSearchManager(String path)
     {
         db = WordSearchDBManager.getInstance();
-        this.fullList = new ArrayList();
+        fullList = new ArrayList();
+        this.path = path;
     }
 
     public static WordSearchManager getInstance()
     {
         if (instance == null)
         {
-            instance = new WordSearchManager();
+            instance = new WordSearchManager(path);
         }
         return instance;
     }
@@ -53,14 +55,13 @@ public class WordSearchManager
     /**
      * Gets the list where only words beginning with the given letters
      *
-     * @param path the path of the file it reads from
      * @param letters the given letters
      * @param caseSensitive a boolean that shows whether case sensitive is on or
      * not
      * @return returns the list
      * @throws Exception
      */
-    public ArrayList beginsWith(String letters, boolean caseSensitive, String path) throws Exception
+    public ArrayList beginsWith(String letters, boolean caseSensitive) throws Exception
     {
         ArrayList list = new ArrayList();
         for (Object wordInList : fullList)
@@ -87,14 +88,13 @@ public class WordSearchManager
     /**
      * Gets the list with only words containing the given letters
      *
-     * @param path the path of the file it reads from
      * @param letters the given letters
      * @param caseSensitive a boolean that shows whether case sensitive is on or
      * not
      * @return returns the list
      * @throws Exception
      */
-    public ArrayList contains(String letters, boolean caseSensitive, String path) throws Exception
+    public ArrayList contains(String letters, boolean caseSensitive) throws Exception
     {
         ArrayList list = new ArrayList();
         for (Object wordInList : fullList)
@@ -121,14 +121,13 @@ public class WordSearchManager
     /**
      * Gets the list where words ends with the given letters
      *
-     * @param path the path of the file it reads from
      * @param letters the given letters
      * @param caseSensitive a boolean that shows whether case sensitive is on or
      * not
      * @return returns the list
      * @throws Exception
      */
-    public ArrayList endsWith(String letters, boolean caseSensitive, String path) throws Exception
+    public ArrayList endsWith(String letters, boolean caseSensitive) throws Exception
     {
         ArrayList list = new ArrayList();
         for (Object wordInList : fullList)
@@ -155,14 +154,13 @@ public class WordSearchManager
     /**
      * Gets the list where words are exactly the same as the given word
      *
-     * @param path the path of the file it reads from
      * @param letters the given letters
      * @param caseSensitive a boolean that shows whether case sensitive is on or
      * not
      * @return returns the list
      * @throws Exception
      */
-    public ArrayList exact(String letters, boolean caseSensitive, String path) throws Exception
+    public ArrayList exact(String letters, boolean caseSensitive) throws Exception
     {
         ArrayList list = new ArrayList();
         for (Object wordInList : fullList)
